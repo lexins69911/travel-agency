@@ -1,9 +1,13 @@
 package com.example.demo.dao.domain.model;
 
+import com.example.demo.dao.domain.schema.ServiceData;
+import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
+import org.hibernate.annotations.TypeDefs;
 
 import javax.persistence.*;
 import java.math.BigInteger;
@@ -12,6 +16,9 @@ import java.math.BigInteger;
 @Table(name = "service")
 @Getter
 @Setter
+@TypeDefs({
+        @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
+})
 @NoArgsConstructor
 public class ServiceEntity {
 
@@ -35,9 +42,8 @@ public class ServiceEntity {
     @Column(name = "description")
     private String description;
 
-    @Lob
-    @Column(name = "service_data")
-    @Type(type="org.hibernate.type.BinaryType")
-    private byte[] serviceData;
+    @Type(type = "jsonb")
+    @Column(columnDefinition = "jsonb")
+    private ServiceData serviceData;
 
 }

@@ -1,9 +1,13 @@
 package com.example.demo.dao.domain.model;
 
+import com.example.demo.dao.domain.schema.UserData;
+import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
+import org.hibernate.annotations.TypeDefs;
 
 import javax.persistence.*;
 
@@ -11,6 +15,9 @@ import javax.persistence.*;
 @Table(name = "usr")
 @Getter
 @Setter
+@TypeDefs({
+        @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
+})
 @NoArgsConstructor
 public class UserEntity {
 
@@ -27,10 +34,9 @@ public class UserEntity {
     @Column(name = "role")
     private String role;
 
-    @Lob
-    @Column(name = "user_data")
-    @Type(type="org.hibernate.type.BinaryType")
-    private byte[] userData;
+    @Type(type = "jsonb")
+    @Column(columnDefinition = "jsonb")
+    private UserData userData;
 
 
 }

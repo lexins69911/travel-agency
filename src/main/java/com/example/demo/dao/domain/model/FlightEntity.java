@@ -1,9 +1,13 @@
 package com.example.demo.dao.domain.model;
 
+import com.example.demo.dao.domain.schema.FlightData;
+import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
+import org.hibernate.annotations.TypeDefs;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -12,6 +16,9 @@ import java.time.LocalDateTime;
 @Table(name = "flight")
 @Getter
 @Setter
+@TypeDefs({
+        @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
+})
 @NoArgsConstructor
 public class FlightEntity {
 
@@ -29,9 +36,8 @@ public class FlightEntity {
     @Column(name = "date_department")
     private LocalDateTime dateDepartment;
 
-    @Lob
-    @Column(name = "flight_data")
-    @Type(type="org.hibernate.type.BinaryType")
-    private byte[] flightDate;
+    @Type(type = "jsonb")
+    @Column(columnDefinition = "jsonb")
+    private FlightData flightDate;
 
 }

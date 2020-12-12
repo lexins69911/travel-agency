@@ -1,5 +1,6 @@
 package com.example.demo.dao.domain.model;
 
+import com.example.demo.dao.domain.schema.TourData;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,10 +29,9 @@ public class TourEntity {
     @Column(name = "count")
     private int count;
 
-    @Lob
-    @Column(name = "tour_data")
-    @Type(type="org.hibernate.type.BinaryType")
-    private byte[] tourDate;
+    @Type(type = "jsonb")
+    @Column(columnDefinition = "jsonb")
+    private TourData tourDate;
 
     @ManyToOne
     @JoinColumn(name = "hotel_id")

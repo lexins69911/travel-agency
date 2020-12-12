@@ -1,9 +1,13 @@
 package com.example.demo.dao.domain.model;
 
+import com.example.demo.dao.domain.schema.RoomData;
+import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
+import org.hibernate.annotations.TypeDefs;
 
 import javax.persistence.*;
 
@@ -11,6 +15,9 @@ import javax.persistence.*;
 @Table(name = "room")
 @Getter
 @Setter
+@TypeDefs({
+        @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
+})
 @NoArgsConstructor
 public class RoomEntity {
 
@@ -27,10 +34,9 @@ public class RoomEntity {
     @Column(name = "count")
     private int count;
 
-    @Lob
-    @Column(name = "room_data")
-    @Type(type="org.hibernate.type.BinaryType")
-    private byte[] roomData;
+    @Type(type = "jsonb")
+    @Column(columnDefinition = "jsonb")
+    private RoomData roomData;
 
     @ManyToOne
     @JoinColumn(name = "hotel_id")
