@@ -1,5 +1,6 @@
 package com.example.demo.dao.domain.model;
 
+import com.example.demo.dao.domain.base.BaseEntity;
 import com.example.demo.dao.domain.schema.FlightData;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.Getter;
@@ -20,7 +21,7 @@ import java.time.LocalDateTime;
         @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 })
 @NoArgsConstructor
-public class FlightEntity {
+public class FlightEntity extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

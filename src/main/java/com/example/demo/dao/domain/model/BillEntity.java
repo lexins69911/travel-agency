@@ -1,5 +1,7 @@
 package com.example.demo.dao.domain.model;
 
+import com.example.demo.dao.domain.base.BaseDto;
+import com.example.demo.dao.domain.base.BaseEntity;
 import com.example.demo.dao.domain.schema.FlightData;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.Getter;
@@ -10,6 +12,7 @@ import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "bill")
@@ -19,7 +22,7 @@ import javax.persistence.*;
         @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 })
 @NoArgsConstructor
-public class BillEntity {
+public class BillEntity extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

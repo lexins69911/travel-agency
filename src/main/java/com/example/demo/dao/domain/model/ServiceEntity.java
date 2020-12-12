@@ -1,5 +1,6 @@
 package com.example.demo.dao.domain.model;
 
+import com.example.demo.dao.domain.base.BaseEntity;
 import com.example.demo.dao.domain.schema.ServiceData;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.Getter;
@@ -20,7 +21,7 @@ import java.math.BigInteger;
         @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 })
 @NoArgsConstructor
-public class ServiceEntity {
+public class ServiceEntity extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

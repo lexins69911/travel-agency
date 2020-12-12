@@ -1,5 +1,6 @@
 package com.example.demo.dao.domain.model;
 
+import com.example.demo.dao.domain.base.BaseEntity;
 import com.example.demo.dao.domain.schema.TourData;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
-public class TourEntity {
+public class TourEntity extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

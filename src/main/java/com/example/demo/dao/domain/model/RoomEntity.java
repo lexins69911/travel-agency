@@ -1,5 +1,6 @@
 package com.example.demo.dao.domain.model;
 
+import com.example.demo.dao.domain.base.BaseEntity;
 import com.example.demo.dao.domain.schema.RoomData;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.Getter;
@@ -19,7 +20,7 @@ import javax.persistence.*;
         @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 })
 @NoArgsConstructor
-public class RoomEntity {
+public class RoomEntity extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
