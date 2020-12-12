@@ -1,5 +1,6 @@
 package com.example.demo.dao.domain.dto;
 
+import com.example.demo.dao.domain.base.BaseDto;
 import com.example.demo.dao.domain.schema.ServiceData;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +11,7 @@ import java.math.BigInteger;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ServiceDto {
+public class ServiceDto extends BaseDto {
 
     private String name;
     private BigInteger price;

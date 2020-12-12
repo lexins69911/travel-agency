@@ -1,5 +1,6 @@
 package com.example.demo.dao.domain.dto;
 
+import com.example.demo.dao.domain.base.BaseDto;
 import com.example.demo.dao.domain.schema.TourData;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +11,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
-public class TourDto {
+public class TourDto extends BaseDto {
 
     private LocalDate dateStart;
     private LocalDate dateEnd;
