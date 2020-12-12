@@ -1,5 +1,6 @@
 package com.example.demo.dao.domain.dto;
 
+import com.example.demo.dao.domain.schema.CountryData;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,6 +11,6 @@ import lombok.Setter;
 public class CountryDto {
 
     private String name;
-    private byte[] countryData;
+    private CountryData countryData;
 
 }

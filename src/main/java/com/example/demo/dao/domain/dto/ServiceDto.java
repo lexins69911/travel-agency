@@ -1,5 +1,6 @@
 package com.example.demo.dao.domain.dto;
 
+import com.example.demo.dao.domain.schema.ServiceData;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,7 +16,7 @@ public class ServiceDto {
     private BigInteger price;
     private String category;
     private String description;
-    private byte[] serviceData;
+    private ServiceData serviceData;
     private TourDto tour;
 
 }
