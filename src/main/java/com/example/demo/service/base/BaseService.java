@@ -9,7 +9,8 @@ public interface BaseService<E extends BaseEntity, D extends BaseDto> {
 
     E create(D dto);
     E save(E entity);
-    E delete(E entity);
+    void delete(E entity);
+    boolean isExist(E entity);
     E findById(Long id);
     List<E> findAll();
 
