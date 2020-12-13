@@ -1,6 +1,7 @@
 package com.example.demo.dao.domain.model;
 
 import com.example.demo.dao.domain.base.BaseEntity;
+import com.example.demo.dao.domain.schema.RoomCategory;
 import com.example.demo.dao.domain.schema.jsonb.RoomData;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.Getter;
@@ -30,7 +31,7 @@ public class RoomEntity extends BaseEntity {
     private int roomSize;
 
     @Column(name = "category")
-    private String category;
+    private RoomCategory category;
 
     @Column(name = "count")
     private int count;
