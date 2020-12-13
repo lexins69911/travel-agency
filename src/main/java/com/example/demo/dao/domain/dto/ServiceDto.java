@@ -1,7 +1,7 @@
 package com.example.demo.dao.domain.dto;
 
 import com.example.demo.dao.domain.base.BaseDto;
-import com.example.demo.dao.domain.schema.ServiceData;
+import com.example.demo.dao.domain.schema.jsonb.ServiceData;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
