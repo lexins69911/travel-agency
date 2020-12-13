@@ -3,6 +3,7 @@ package com.example.demo.service.domain;
 import com.example.demo.dao.domain.dto.UserDto;
 import com.example.demo.dao.domain.model.UserEntity;
 import com.example.demo.dao.domain.repo.UserRepo;
+import com.example.demo.dao.domain.schema.Role;
 import com.example.demo.exception.EntityNotFoundException;
 import com.example.demo.exception.InsufficientDataException;
 import com.example.demo.service.base.BaseService;
@@ -20,6 +21,9 @@ public class UserService implements BaseService<UserEntity, UserDto> {
     private final UserRepo userRepo;
     private final UserMapper mapper;
 
+    public List<UserEntity> findAllByRole(Role role) {
+        return userRepo.findAllByRole(role);
+    }
 
     public UserEntity findByLogin(String login) {
         Optional<UserEntity> byLogin = userRepo.findByLogin(login);
@@ -49,7 +53,7 @@ public class UserService implements BaseService<UserEntity, UserDto> {
     public boolean isExist(UserEntity entity) {
         try {
             if (entity.getId() != null) {
-                findByLogin(entity.getLogin());
+                findById(entity.getId());
                 return true;
             }
             if (entity.getLogin()!=null) {
