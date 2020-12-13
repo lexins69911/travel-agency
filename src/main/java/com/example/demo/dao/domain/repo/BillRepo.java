@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface BillRepo extends CrudRepository<BillEntity, Long> {
 
-    List<BillRepo> findByTourId (Long id);
+    List<BillEntity> findByTourId (Long id);
 
 }
