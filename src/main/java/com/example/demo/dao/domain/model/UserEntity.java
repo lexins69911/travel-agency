@@ -1,6 +1,7 @@
 package com.example.demo.dao.domain.model;
 
 import com.example.demo.dao.domain.base.BaseEntity;
+import com.example.demo.dao.domain.schema.Role;
 import com.example.demo.dao.domain.schema.jsonb.UserData;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.Getter;
@@ -33,7 +34,7 @@ public class UserEntity extends BaseEntity {
     private String password;
 
     @Column(name = "role")
-    private String role;
+    private Role role;
 
     @Type(type = "jsonb")
     @Column(columnDefinition = "jsonb")
