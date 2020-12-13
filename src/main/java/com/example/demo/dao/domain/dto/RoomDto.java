@@ -1,6 +1,7 @@
 package com.example.demo.dao.domain.dto;
 
 import com.example.demo.dao.domain.base.BaseDto;
+import com.example.demo.dao.domain.schema.RoomCategory;
 import com.example.demo.dao.domain.schema.jsonb.RoomData;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,7 @@ import lombok.Setter;
 public class RoomDto extends BaseDto {
 
     private int roomSize;
-    private String category;
+    private RoomCategory category;
     private int count;
     private RoomData roomDate;
     private HotelDto hotel;
