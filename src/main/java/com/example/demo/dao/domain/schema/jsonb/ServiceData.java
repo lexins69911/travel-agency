@@ -1,4 +1,4 @@
-package com.example.demo.dao.domain.schema;
+package com.example.demo.dao.domain.schema.jsonb;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

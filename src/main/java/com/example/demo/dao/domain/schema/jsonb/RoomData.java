@@ -1,4 +1,4 @@
-package com.example.demo.dao.domain.schema;
+package com.example.demo.dao.domain.schema.jsonb;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,5 +9,5 @@ import java.io.Serializable;
 @Getter
 @Setter
 @NoArgsConstructor
-public class UserData implements Serializable {
+public class RoomData implements Serializable {
 }
