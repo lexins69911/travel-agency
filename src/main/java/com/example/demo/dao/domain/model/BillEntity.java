@@ -1,8 +1,7 @@
 package com.example.demo.dao.domain.model;
 
-import com.example.demo.dao.domain.base.BaseDto;
 import com.example.demo.dao.domain.base.BaseEntity;
-import com.example.demo.dao.domain.schema.FlightData;
+import com.example.demo.dao.domain.schema.jsonb.FlightData;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +11,6 @@ import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "bill")

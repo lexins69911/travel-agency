@@ -1,7 +1,8 @@
 package com.example.demo.dao.domain.model;
 
 import com.example.demo.dao.domain.base.BaseEntity;
-import com.example.demo.dao.domain.schema.ServiceData;
+import com.example.demo.dao.domain.schema.ServiceCategory;
+import com.example.demo.dao.domain.schema.jsonb.ServiceData;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,7 +39,7 @@ public class ServiceEntity extends BaseEntity {
     private BigInteger price;
 
     @Column(name = "category")
-    private String category;
+    private ServiceCategory category;
 
     @Column(name = "description")
     private String description;
