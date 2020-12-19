@@ -1,0 +1,10 @@
+<nb-list *ngIf="countries$ | async as countries">
+    <nb-list-item *ngFor="let country of countries">
+        <nb-card>
+            <nb-card-header>{{country.name}}</nb-card-header>
+            <nb-card-body>
+                <nb-icon [routerLink]="country.id" icon="edit-outline"></nb-icon>
+            </nb-card-body>
+        </nb-card>
+    </nb-list-item>
+</nb-list>
