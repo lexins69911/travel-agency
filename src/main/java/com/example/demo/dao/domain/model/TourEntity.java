@@ -21,6 +21,9 @@ public class TourEntity extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "tour_name")
+    private String name;
+
     @Column(name = "date_start")
     private LocalDate dateStart;
 

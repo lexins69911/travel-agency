@@ -13,6 +13,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class TourDto extends BaseDto {
 
+    private String name;
     private LocalDate dateStart;
     private LocalDate dateEnd;
     private int count;
