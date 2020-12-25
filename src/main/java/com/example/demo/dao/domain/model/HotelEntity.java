@@ -13,6 +13,7 @@ import org.hibernate.annotations.TypeDefs;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "hotel")
@@ -35,5 +36,6 @@ public class HotelEntity extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "country_id")
     private CountryEntity countryEntity;
+
 
 }
