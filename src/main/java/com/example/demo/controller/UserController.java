@@ -16,7 +16,7 @@ import java.security.Principal;
 @RestController
 @RequestMapping("/api/user")
 @RequiredArgsConstructor
-public class RegistrationController {
+public class UserController {
 
     private final UserService userService;
     private final PasswordEncoder encoder;
