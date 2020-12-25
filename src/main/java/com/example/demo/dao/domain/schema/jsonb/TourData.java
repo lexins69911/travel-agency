@@ -13,7 +13,9 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class TourData implements Serializable {
 
+    private Integer tourCount;
     private LocalDateTime dateArrival;
     private LocalDateTime dateDepartment;
-
+    private String airportName;
+    private String airportCode;
 }
