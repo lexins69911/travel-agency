@@ -27,9 +27,6 @@ public class TourEntity extends BaseEntity {
     @Column(name = "date_end")
     private LocalDate dateEnd;
 
-    @Column(name = "count")
-    private int count;
-
     @Type(type = "jsonb")
     @Column(columnDefinition = "jsonb")
     private TourData tourData;
