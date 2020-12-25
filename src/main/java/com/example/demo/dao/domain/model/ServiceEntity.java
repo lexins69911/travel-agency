@@ -23,19 +23,10 @@ public class ServiceEntity extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "tour_id")
-    private TourEntity tourEntity;
+    private TourEntity tour;
 
     @Column(name = "name")
     private String name;
-
-    @Column(name = "price")
-    private BigInteger price;
-
-    @Column(name = "category")
-    private ServiceCategory category;
-
-    @Column(name = "description")
-    private String description;
 
     @Type(type = "jsonb")
     @Column(columnDefinition = "jsonb")
