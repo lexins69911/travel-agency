@@ -12,20 +12,14 @@ import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "usr")
 @Getter
 @Setter
-@TypeDefs({
-        @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
-})
 @NoArgsConstructor
 public class UserEntity extends BaseEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
 
     @Column(name = "login", unique = true)
     private String login;

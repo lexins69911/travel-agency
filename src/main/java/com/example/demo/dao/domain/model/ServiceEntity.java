@@ -18,15 +18,8 @@ import java.math.BigInteger;
 @Table(name = "service")
 @Getter
 @Setter
-@TypeDefs({
-        @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
-})
 @NoArgsConstructor
 public class ServiceEntity extends BaseEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "tour_id")

@@ -16,9 +16,6 @@ import javax.persistence.*;
 @Table(name = "country")
 @Getter
 @Setter
-@TypeDefs({
-        @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
-})
 @NoArgsConstructor
 public class CountryEntity extends BaseEntity {
 

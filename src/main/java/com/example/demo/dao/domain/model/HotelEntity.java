@@ -16,15 +16,8 @@ import javax.persistence.*;
 @Table(name = "hotel")
 @Getter
 @Setter
-@TypeDefs({
-        @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
-})
 @NoArgsConstructor
 public class HotelEntity extends BaseEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
 
     @Column(name = "name", unique = true)
     private String name;

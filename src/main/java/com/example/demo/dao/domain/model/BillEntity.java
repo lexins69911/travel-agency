@@ -16,15 +16,8 @@ import javax.persistence.*;
 @Table(name = "bill")
 @Getter
 @Setter
-@TypeDefs({
-        @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
-})
 @NoArgsConstructor
 public class BillEntity extends BaseEntity{
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
