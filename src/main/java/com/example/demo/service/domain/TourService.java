@@ -22,16 +22,24 @@ public class TourService implements BaseService<TourEntity, TourDto> {
     private final TourRepo tourRepo;
     private final TourMapper mapper;
 
-    public List<TourEntity> findAllByDateStart (LocalDate start) {
-        return tourRepo.findAllByDateStart(start);
+    public List<TourDto> findAllByPartName(String name) {
+        List<TourEntity> allByNameContains = tourRepo.findAllByNameContains(name);
+        return mapper.toListDto(allByNameContains);
     }
 
-    public List<TourEntity> findAllByDateEnd (LocalDate end) {
-        return tourRepo.findAllByDateEnd(end);
+    public List<TourDto> findAllByDateStart (LocalDate start) {
+        List<TourEntity> allByDateStart = tourRepo.findAllByDateStart(start);
+        return mapper.toListDto(allByDateStart);
     }
 
-    public List<TourEntity> findAllTourWithDateBetween(LocalDate start, LocalDate end) {
-        return tourRepo.findAllByDateStartGreaterThanEqualAndDateEndLessThanEqual(start, end);
+    public List<TourDto> findAllByDateEnd (LocalDate end) {
+        List<TourEntity> allByDateEnd = tourRepo.findAllByDateEnd(end);
+        return mapper.toListDto(allByDateEnd);
+    }
+
+    public List<TourDto> findAllTourWithDateBetween(LocalDate start, LocalDate end) {
+        List<TourEntity> all = tourRepo.findAllByDateStartGreaterThanEqualAndDateEndLessThanEqual(start, end);
+        return mapper.toListDto(all);
     }
 
     @Override
