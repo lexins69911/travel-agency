@@ -34,5 +34,12 @@ public class UserEntity extends BaseEntity {
     @Column(columnDefinition = "jsonb")
     private UserData userData;
 
+    @OneToMany(
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.EAGER
+    )
+    private Set<BillEntity> bills;
 
 }
