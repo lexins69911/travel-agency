@@ -32,6 +32,6 @@ public class BillEntity extends BaseEntity{
 
     @Type(type = "jsonb")
     @Column(columnDefinition = "jsonb")
-    private FlightData flightDate;
+    private BillData billData;
 
 }
