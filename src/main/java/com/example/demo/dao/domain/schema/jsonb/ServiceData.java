@@ -1,11 +1,10 @@
 package com.example.demo.dao.domain.schema.jsonb;
 
-import com.example.demo.dao.domain.schema.ServiceCategory;
+import com.example.demo.dao.domain.schema.enums.ServiceCategory;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
 import java.math.BigInteger;
 
 @Getter

@@ -1,6 +1,6 @@
 package com.example.demo.dao.domain.schema.jsonb;
 
-import com.example.demo.dao.domain.schema.Gender;
+import com.example.demo.dao.domain.schema.enums.Gender;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
