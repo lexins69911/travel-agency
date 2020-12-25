@@ -9,6 +9,7 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "tour")
@@ -36,5 +37,16 @@ public class TourEntity extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "hotel_id")
     private HotelEntity hotelEntity;
+
+    @OneToOne(mappedBy = "tour")
+    private BillEntity bill;
+
+    @OneToMany(
+            mappedBy = "tour",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.EAGER
+    )
+    private Set<ServiceEntity> services;
 
 }
