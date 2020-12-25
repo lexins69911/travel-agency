@@ -30,7 +30,7 @@ public class CountryService implements BaseService<CountryEntity, CountryDto> {
 
     @Override
     public CountryEntity create(CountryDto dto) {
-        CountryEntity countryEntity = countryMapper.toDto(dto);
+        CountryEntity countryEntity = countryMapper.toEntity(dto);
         return countryRepo.save(countryEntity);
     }
 
