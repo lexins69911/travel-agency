@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,5 +18,6 @@ public class UserDto extends BaseDto {
     private String password;
     private Role role;
     private UserData userData;
+    private Set<BillDto> bills;
 
 }

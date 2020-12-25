@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -16,8 +17,8 @@ public class TourDto extends BaseDto {
     private String name;
     private LocalDate dateStart;
     private LocalDate dateEnd;
-    private int count;
     private TourData tourData;
     private HotelDto hotel;
+    private Set<ServiceDto> services;
 
 }

@@ -14,10 +14,6 @@ import java.math.BigInteger;
 public class ServiceDto extends BaseDto {
 
     private String name;
-    private BigInteger price;
-    private String category;
-    private String description;
     private ServiceData serviceData;
-    private TourDto tour;
 
 }
