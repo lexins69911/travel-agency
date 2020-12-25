@@ -6,6 +6,7 @@ import com.example.demo.dao.domain.repo.UserRepo;
 import com.example.demo.dao.domain.schema.Role;
 import com.example.demo.exception.EntityNotFoundException;
 import com.example.demo.exception.InsufficientDataException;
+import com.example.demo.exception.UserAlreadyExistException;
 import com.example.demo.service.base.BaseService;
 import com.example.demo.service.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
@@ -36,7 +37,10 @@ public class UserService implements BaseService<UserEntity, UserDto> {
     @Override
     public UserEntity create(UserDto dto) {
         UserEntity userEntity = mapper.toEntity(dto);
-        return userRepo.save(userEntity);
+        if (!isExist(userEntity))
+            return userRepo.save(userEntity);
+        else
+            throw new UserAlreadyExistException("User already exist");
     }
 
     @Override
