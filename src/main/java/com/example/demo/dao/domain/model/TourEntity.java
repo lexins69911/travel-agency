@@ -32,7 +32,7 @@ public class TourEntity extends BaseEntity {
 
     @Type(type = "jsonb")
     @Column(columnDefinition = "jsonb")
-    private TourData tourDate;
+    private TourData tourData;
 
     @ManyToOne
     @JoinColumn(name = "hotel_id")
