@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface CountryRepo extends CrudRepository<CountryEntity, Long> {
 
     Optional<CountryEntity> findByName (String name);
+
 }

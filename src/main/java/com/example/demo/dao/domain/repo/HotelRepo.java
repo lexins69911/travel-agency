@@ -11,4 +11,5 @@ public interface HotelRepo extends CrudRepository<HotelEntity, Long> {
     List<HotelEntity> findAllByName (String name);
     List<HotelEntity> findAllByNameContains(String partOfName);
     List<HotelEntity> findAllByCountryEntityName(String name);
+
 }
