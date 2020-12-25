@@ -1,4 +1,4 @@
-package com.example.demo.dao.domain.schema;
+package com.example.demo.dao.domain.schema.enums;
 
 public enum RoomCategory {
 
