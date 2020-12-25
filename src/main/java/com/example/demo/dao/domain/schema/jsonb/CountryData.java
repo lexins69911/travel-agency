@@ -10,4 +10,8 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 public class CountryData implements Serializable {
+
+    private String EN;
+    private String RUS;
+
 }
