@@ -1,0 +1,9 @@
+<nb-card *ngIf="country$ | async as country">
+    <nb-card-body *ngIf="!!form" [formGroup]="form">
+        <div>
+        <label for="name">Name</label>
+        <input id="name" type="text" nbInput formControlName="name">
+    </div>
+    <button nbButton>Сохранить</button>
+    </nb-card-body>
+</nb-card>
