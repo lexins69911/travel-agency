@@ -23,8 +23,8 @@ public class BillEntity extends BaseEntity{
     @JoinColumn(name = "user_id")
     private UserEntity user;
 
-    @ManyToOne
-    @JoinColumn(name = "tour_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "tour_id", referencedColumnName = "id")
     private TourEntity tour;
 
     @Column(name = "approve")
