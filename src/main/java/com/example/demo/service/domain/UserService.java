@@ -40,6 +40,7 @@ public class UserService implements BaseService<UserEntity, UserDto> {
     @Override
     public UserEntity create(UserDto dto) {
         dto.setPassword(encoder.encode(dto.getPassword()));
+        dto.setRole(Role.ROLE_USER);
         UserEntity userEntity = mapper.toEntity(dto);
         if (!isExist(userEntity))
             return userRepo.save(userEntity);
