@@ -3,6 +3,7 @@ package com.example.demo.service.domain;
 import com.example.demo.dao.domain.dto.TourDto;
 import com.example.demo.dao.domain.model.TourEntity;
 import com.example.demo.dao.domain.repo.TourRepo;
+import com.example.demo.dao.domain.schema.jsonb.HotelData;
 import com.example.demo.exception.EntityNotFoundException;
 import com.example.demo.exception.InsufficientDataException;
 import com.example.demo.service.base.BaseService;
@@ -21,6 +22,15 @@ public class TourService implements BaseService<TourEntity, TourDto> {
 
     private final TourRepo tourRepo;
     private final TourMapper mapper;
+
+    public TourDto findByHotelId(Long hotelId) {
+
+        Optional<TourEntity> byHotelId = tourRepo.findByHotelId(hotelId);
+        if (byHotelId.isPresent())
+            return mapper.toDto(byHotelId.get());
+        else
+            throw new EntityNotFoundException("Can't find tour by hotel id: " + hotelId);
+    }
 
     public List<TourDto> findAllByPartName(String name) {
         List<TourEntity> allByNameContains = tourRepo.findAllByNameContains(name);

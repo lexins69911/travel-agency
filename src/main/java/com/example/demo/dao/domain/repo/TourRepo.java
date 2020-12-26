@@ -5,6 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 public interface TourRepo extends CrudRepository<TourEntity, Long> {
 
@@ -12,5 +13,6 @@ public interface TourRepo extends CrudRepository<TourEntity, Long> {
     List<TourEntity> findAllByDateEnd (LocalDate dateEnd);
     List<TourEntity> findAllByDateStartGreaterThanEqualAndDateEndLessThanEqual (LocalDate start, LocalDate end);
     List<TourEntity> findAllByNameContains(String partName);
+    Optional<TourEntity> findByHotelId(Long hotelId);
 
 }
