@@ -5,6 +5,7 @@ import com.example.demo.dao.domain.model.TourEntity;
 import org.mapstruct.Mapper;
 
 import java.util.List;
+import java.util.Set;
 
 @Mapper(componentModel = "spring")
 public interface TourMapper {
@@ -14,4 +15,7 @@ public interface TourMapper {
 
     List<TourDto> toListDto(List<TourEntity> list);
     List<TourEntity> toListEntity(List<TourDto> list);
+
+    Set<TourDto> toSetDto(Set<TourEntity> set);
+    Set<TourEntity> toSetEntity(Set<TourDto> set);
 }
