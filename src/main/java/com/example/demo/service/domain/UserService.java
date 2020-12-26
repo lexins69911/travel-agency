@@ -3,13 +3,14 @@ package com.example.demo.service.domain;
 import com.example.demo.dao.domain.dto.UserDto;
 import com.example.demo.dao.domain.model.UserEntity;
 import com.example.demo.dao.domain.repo.UserRepo;
-import com.example.demo.dao.domain.schema.Role;
+import com.example.demo.dao.domain.schema.enums.Role;
 import com.example.demo.exception.EntityNotFoundException;
 import com.example.demo.exception.InsufficientDataException;
 import com.example.demo.exception.UserAlreadyExistException;
 import com.example.demo.service.base.BaseService;
 import com.example.demo.service.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,9 +22,11 @@ public class UserService implements BaseService<UserEntity, UserDto> {
 
     private final UserRepo userRepo;
     private final UserMapper mapper;
+    private final PasswordEncoder encoder;
 
-    public List<UserEntity> findAllByRole(Role role) {
-        return userRepo.findAllByRole(role);
+    public List<UserDto> findAllByRole(Role role) {
+        List<UserEntity> allByRole = userRepo.findAllByRole(role);
+        return mapper.toListDto(allByRole);
     }
 
     public UserEntity findByLogin(String login) {
@@ -36,6 +39,7 @@ public class UserService implements BaseService<UserEntity, UserDto> {
 
     @Override
     public UserEntity create(UserDto dto) {
+        dto.setPassword(encoder.encode(dto.getPassword()));
         UserEntity userEntity = mapper.toEntity(dto);
         if (!isExist(userEntity))
             return userRepo.save(userEntity);
