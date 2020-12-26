@@ -17,6 +17,6 @@ public class HotelDto extends BaseDto {
     private String name;
     private List<Room> roomList;
     private HotelData hotelData;
-    private CountryDto countryDto;
+    private CountryDto country;
 
 }
