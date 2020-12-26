@@ -1,6 +1,7 @@
 package com.example.demo.dao.domain.model;
 
 import com.example.demo.dao.domain.base.BaseEntity;
+import com.example.demo.dao.domain.schema.jsonb.Services;
 import com.example.demo.dao.domain.schema.jsonb.TourData;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,7 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "tour")
@@ -33,17 +34,13 @@ public class TourEntity extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "hotel_id")
-    private HotelEntity hotelEntity;
+    private HotelEntity hotel;
 
     @OneToOne(mappedBy = "tour")
     private BillEntity bill;
 
-    @OneToMany(
-            mappedBy = "tour",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true,
-            fetch = FetchType.EAGER
-    )
-    private Set<ServiceEntity> services;
+    @Type(type = "jsonb")
+    @Column(columnDefinition = "jsonb")
+    private List<Services> services;
 
 }

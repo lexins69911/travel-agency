@@ -1,12 +1,14 @@
 package com.example.demo.dao.domain.dto;
 
 import com.example.demo.dao.domain.base.BaseDto;
+import com.example.demo.dao.domain.schema.jsonb.Services;
 import com.example.demo.dao.domain.schema.jsonb.TourData;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -19,6 +21,6 @@ public class TourDto extends BaseDto {
     private LocalDate dateEnd;
     private TourData tourData;
     private HotelDto hotel;
-    private Set<ServiceDto> services;
+    private List<Services> services;
 
 }
