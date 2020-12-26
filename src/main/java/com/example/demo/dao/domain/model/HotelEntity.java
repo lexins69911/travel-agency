@@ -12,6 +12,7 @@ import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -35,7 +36,15 @@ public class HotelEntity extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "country_id")
-    private CountryEntity countryEntity;
+    private CountryEntity country;
+
+    @OneToMany(
+            mappedBy = "hotel",
+            orphanRemoval = true,
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER
+    )
+    private Set<TourEntity> tours = new HashSet<>();
 
 
 }
