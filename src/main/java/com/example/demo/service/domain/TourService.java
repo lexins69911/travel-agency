@@ -38,12 +38,12 @@ public class TourService implements BaseService<TourEntity, TourDto> {
     }
 
     public List<TourDto> findAllByDateStart (LocalDate start) {
-        List<TourEntity> allByDateStart = tourRepo.findAllByDateStart(start);
+        List<TourEntity> allByDateStart = tourRepo.findAllByDateStartGreaterThanEqual(start);
         return mapper.toListDto(allByDateStart);
     }
 
     public List<TourDto> findAllByDateEnd (LocalDate end) {
-        List<TourEntity> allByDateEnd = tourRepo.findAllByDateEnd(end);
+        List<TourEntity> allByDateEnd = tourRepo.findAllByDateEndLessThanEqual(end);
         return mapper.toListDto(allByDateEnd);
     }
 
