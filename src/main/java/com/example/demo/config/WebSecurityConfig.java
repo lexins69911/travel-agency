@@ -39,6 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().and()
                 .authorizeRequests()
                     .antMatchers("/api/admin/**").access("hasRole('ADMIN')")
+                    .antMatchers("/api/user/registration").permitAll()
                     .anyRequest().authenticated()
                     .and()
                 .formLogin()
