@@ -1,7 +1,7 @@
 package com.example.demo.dao.domain.dto;
 
 import com.example.demo.dao.domain.base.BaseDto;
-import com.example.demo.dao.domain.schema.Role;
+import com.example.demo.dao.domain.schema.enums.Role;
 import com.example.demo.dao.domain.schema.jsonb.UserData;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
