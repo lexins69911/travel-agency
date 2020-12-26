@@ -7,6 +7,7 @@ import com.example.demo.service.domain.HotelService;
 import com.example.demo.service.domain.TourService;
 import com.example.demo.service.mapper.TourMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -65,8 +66,12 @@ public class TourController {
 
     @GetMapping("/tour/by/date")
     public ResponseEntity<List<TourDto>> getToursByDatetime(
-            @RequestParam(name = "start_date", required = false)LocalDate start,
-            @RequestParam(name = "end_date", required = false) LocalDate end) {
+            @RequestParam(value = "start_date", required = false)
+            @DateTimeFormat(pattern = "yyyy-MM-dd")
+                    LocalDate start,
+            @RequestParam(value = "end_date", required = false)
+            @DateTimeFormat(pattern = "yyyy-MM-dd")
+                    LocalDate end) {
 
         if (start==null && end==null) {
             return new ResponseEntity<>(
