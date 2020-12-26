@@ -8,10 +8,7 @@ import com.example.demo.service.mapper.CountryMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,7 +20,23 @@ public class CountryController {
     private final CountryService countryService;
     private final CountryMapper countryMapper;
 
-    
+
+    @GetMapping("/country/{id}")
+    public ResponseEntity<CountryDto> getCountryById(@PathVariable("id") Long id) {
+
+        try {
+            CountryEntity byId = countryService.findById(id);
+            return new ResponseEntity<>(
+                    countryMapper.toDto(byId),
+                    HttpStatus.OK
+            );
+        } catch (EntityNotFoundException e) {
+            return new ResponseEntity<>(
+                    HttpStatus.BAD_REQUEST
+            );
+        }
+    }
+
     @GetMapping("/country")
     public ResponseEntity<CountryDto> getCountryByName(@RequestParam("country_name") String countryName) {
 

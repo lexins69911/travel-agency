@@ -1,6 +1,8 @@
 package com.example.demo.controller.data;
 
 import com.example.demo.dao.domain.dto.HotelDto;
+import com.example.demo.dao.domain.model.HotelEntity;
+import com.example.demo.exception.EntityNotFoundException;
 import com.example.demo.service.domain.HotelService;
 import com.example.demo.service.mapper.HotelMapper;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +19,21 @@ public class HotelController {
 
     private final HotelService hotelService;
     private final HotelMapper hotelMapper;
+
+    @GetMapping("/hotel/{id}")
+    public ResponseEntity<HotelDto> getHotelById(@PathVariable("id") Long id) {
+        try {
+            HotelEntity byId = hotelService.findById(id);
+            return new ResponseEntity<>(
+                    hotelMapper.toDto(byId),
+                    HttpStatus.OK
+            );
+        } catch (EntityNotFoundException e) {
+            return new ResponseEntity<>(
+                    HttpStatus.BAD_REQUEST
+            );
+        }
+    }
 
     @GetMapping("/hotel")
     public ResponseEntity<List<HotelDto>> getHotelsByName(@RequestParam("name") String hotelName) {
