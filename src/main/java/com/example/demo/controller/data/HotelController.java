@@ -65,4 +65,27 @@ public class HotelController {
                 HttpStatus.OK
         );
     }
+
+    @GetMapping("/hotel/by/country/id")
+    public ResponseEntity<List<HotelDto>> getHotelByCountryId(@RequestParam("country_id") Long id) {
+
+        List<HotelDto> byCountryId = hotelService.findByCountryId(id);
+
+        return new ResponseEntity<>(
+                byCountryId,
+                HttpStatus.OK
+        );
+
+    }
+
+    @GetMapping("/hotel/all")
+    public ResponseEntity<List<HotelDto>> getAllHotels() {
+        List<HotelEntity> all = hotelService.findAll();
+
+        return new ResponseEntity<>(
+                hotelMapper.toListDto(all),
+                HttpStatus.OK
+        );
+
+    }
 }
