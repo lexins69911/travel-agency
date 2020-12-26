@@ -20,6 +20,11 @@ public class HotelService implements BaseService<HotelEntity, HotelDto> {
     private final HotelRepo hotelRepo;
     private final HotelMapper hotelMapper;
 
+    public List<HotelDto> findByCountryId(Long countryId) {
+        List<HotelEntity> allByCountryId = hotelRepo.findAllByCountryId(countryId);
+        return hotelMapper.toListDto(allByCountryId);
+    }
+
     public List<HotelDto> findByCountryName(String name) {
         List<HotelEntity> allByCountryEntityName = hotelRepo.findAllByCountryName(name);
         return hotelMapper.toListDto(allByCountryEntityName);
