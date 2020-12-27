@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/admin")
 @RequiredArgsConstructor
@@ -54,5 +56,15 @@ public class AdminController {
                     HttpStatus.BAD_REQUEST
             );
         }
+    }
+
+    @GetMapping("/user/all")
+    public ResponseEntity<List<UserDto>> getAllUsers() {
+
+        List<UserEntity> all = userService.findAll();
+        return new ResponseEntity<>(
+                userMapper.toListDto(all),
+                HttpStatus.OK
+        );
     }
 }
